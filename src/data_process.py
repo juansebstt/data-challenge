@@ -3,13 +3,15 @@ import json
 import plotly.graph_objects as go
 import os
 
-file_path = "C:/Users/under/Pycharm-Projects/TelefonicaChallenge/data/Events.xlsx"
+base_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
+base_folder = os.path.abspath(base_folder)
+
+# File paths
+file_path = os.path.join(base_folder, "Events.xlsx")
+image_path = os.path.join(base_folder, "funnel.png")
+csv_path = os.path.join(base_folder, "funnel.csv")
+
 df = pd.read_excel(file_path)
-
-folder_path = 'C:/Users/under/Pycharm-Projects/TelefonicaChallenge/data/'
-
-image_path = os.path.join(folder_path, 'funnel.png')
-csv_path = os.path.join(folder_path, 'funnel.csv')
 
 
 def extract_paso_flujo(event_params):
