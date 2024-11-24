@@ -43,7 +43,7 @@ print(f"Usuarios únicos que visualizaron la Landing Page: {page_view_count}")
 def funnel_data(funnel, page_view_count, date="14-11-2024"):
     funnel_data = funnel.copy()
     funnel_data.loc[-1] = ['Page Views', page_view_count]
-    funnel_data.index = funnel_data.index + 1  # Ajustar el índice
+    funnel_data.index = funnel_data.index + 1
     funnel_data.sort_index(inplace=True)
 
     funnel_data = funnel_data.sort_values(by='Clientes únicos', ascending=False)
@@ -73,12 +73,12 @@ funnel_chart.update_layout(
 
 if not funnel_data.empty:
     try:
-        funnel_data.to_csv(csv_path, index=False)  # Make sure index=False to prevent writing extra index column
+        funnel_data.to_csv(csv_path, index=False)
         print(f"CSV file saved successfully: {csv_path}")
     except Exception as e:
         print(f"Error saving CSV: {e}")
 else:
     print("DataFrame is empty, nothing to save.")
 
-funnel_chart.show()
 
+funnel_chart.show()
